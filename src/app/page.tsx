@@ -1,9 +1,11 @@
-import Game from './components/Game'
+import {Header} from './components/header'
 
 const Home = () => {
-	return <section className="h-full">
-		<Game/>
-	</section>;
+  return (
+    <div className="bg-slate-50 min-h-screen">
+      <Header/>
+    </div>
+  );
 };
 
 export default Home;

@@ -24,7 +24,7 @@ export const GameTitle = ({className}) => {
 					<Image src={UserIcon} />2
 				</div>
 				<div className="flex gap-1">
-					<Image src={HistoryIcon} />1 мин на ход
+					<Image src={HistoryIcon}/>1 мин на ход
 				</div>
 			</div>
 		</div>

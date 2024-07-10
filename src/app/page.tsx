@@ -1,6 +1,5 @@
 import { Header } from './components/header'
-import { GameTitle } from './components/game'
-import {GameInfo} from './components/game'
+import { GameTitle,GameInfo, GameField} from './components/game'
 
 const Home = () => {
   return (
@@ -8,7 +7,8 @@ const Home = () => {
 			<Header />
 			<main className='max-w-[616px] mx-auto'>
 				<GameTitle className="mb-4"/>
-				<GameInfo/>
+				<GameInfo className="mb-6"/>
+				<GameField/>
 			</main>
     </div>
   );

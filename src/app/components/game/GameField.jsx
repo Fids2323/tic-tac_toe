@@ -5,10 +5,12 @@ import {UiButton} from '../ui-kit/UiButton'
 import CrossIcon from '../profile/icons/cross-icon.svg'
 import RoundIcon from '../profile/icons/round-icon.svg'
 
+const cells = new Array(19*19).fill(null)
+
 export const GameField = () => {
   return (
     <div className='px-8 pt-5'>
-        <div className='mb-4 flex justify-between '>
+        <div className='mb-4 flex justify-between items-center'>
             {/* info */}
             <div >
                 <div className='flex'>
@@ -27,8 +29,12 @@ export const GameField = () => {
             </div>
         </div>
         {/* field */}
-        <div>
-            Field
+        <div className='grid grid-cols-[repeat(19,30px)] grid-rows-[repeat(19,30px)] pl-px pt-px'>
+            {cells.map((_,index)=>(
+                <button key={index} className='border border-slate-200 -ml-px -mt-px flex items-center justify-center'>
+                     <Image src={RoundIcon} width={20} height={20}/>
+                </button>
+            ))}
         </div>
     </div>
   )

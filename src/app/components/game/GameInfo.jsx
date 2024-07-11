@@ -24,7 +24,7 @@ export const GameInfo = ({className}) => {
 					<Image src={roundIcon}/>
 				</div>
 				<div className="w-px h-8 bg-slate-400 mx-3" />
-				<div className="text-orange-600 text-lg font-semibold">00:08</div>
+				<div className="text-orange-600 text-lg font-semibold">00:08</div>			
 			</div>
 		</div>
 	);

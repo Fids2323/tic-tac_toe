@@ -1,42 +1,49 @@
-import Image from 'next/image'
+"use client"
 import {UiButton} from '../ui-kit/UiButton'
+import { useState } from 'react'
+import {GAME_SYMBOL, MOVE_ORDER} from './constants.js'
 
-//icons
-import CrossIcon from '../profile/icons/cross-icon.svg'
-import RoundIcon from '../profile/icons/round-icon.svg'
 
-const cells = new Array(19*19).fill(null)
+
+// components
+import { GameFieldLayout } from './GameFieldLayout'
+import { GameMoveInfo } from './GameMoveInfo'
+import { GameGrid } from './GameGrid'
+import { GameCell } from './GameCell'
+
+
+const getNextMove = (currentMove) => {
+  const indexMove = MOVE_ORDER.indexOf(currentMove) + 1;
+  return MOVE_ORDER[indexMove] ||  MOVE_ORDER[0];
+}
 
 export const GameField = () => {
+  const [{cells,currentMove},setGameState] = useState(() => ({
+    cells: new Array(19*19).fill(null),
+    currentMove: GAME_SYMBOL.CROSS,
+  }))
+
+  const nextMove = getNextMove(currentMove)
+  const handleCellClick = (id) => {
+    console.log(id);
+  }
+  
+
   return (
-    <div className='px-8 pt-5'>
-        <div className='mb-4 flex justify-between items-center'>
-            {/* info */}
-            <div >
-                <div className='flex'>
-                    Ход:  
-                    <Image src={CrossIcon} width={20} height={20}/>
-                </div>
-                <div className='flex'>
-                    Следующий: 
-                    <Image src={RoundIcon} width={12} height={12}/>
-                </div>
-            </div>
-            {/* buttons */}
-             <div className='flex items-center gap-3'>
-                <UiButton children="Ничья" variant='primary' size='md'/>
-                <UiButton children="Сдаться" variant='outline' size='md'/>
-            </div>
-        </div>
-        {/* field */}
-        <div className='grid grid-cols-[repeat(19,30px)] grid-rows-[repeat(19,30px)] pl-px pt-px'>
+    <GameFieldLayout>
+        <GameMoveInfo actions={<div className='flex items-center gap-3'>
+            <UiButton children="Ничья" variant='primary' size='md'/>
+            <UiButton children="Сдаться" variant='outline' size='md'/></div>}
+        currentMove={currentMove} 
+        nextMove = {nextMove}/>
+        <GameGrid>
             {cells.map((_,index)=>(
-                <button key={index} className='border border-slate-200 -ml-px -mt-px flex items-center justify-center'>
-                     <Image src={RoundIcon} width={20} height={20}/>
-                </button>
-            ))}
-        </div>
-    </div>
+                <GameCell key={index} onClick={handleCellClick}>
+                  <GAME_SYMBOL  className='w-5 h-5'/>
+                </GameCell>
+             ))}           
+        </GameGrid>
+    </GameFieldLayout>
   )
 }
 

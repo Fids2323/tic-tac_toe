@@ -9,7 +9,7 @@ import HistoryIcon from "./icons/history-icon.svg";
 import UserIcon from "./icons/user-icon.svg";
 import StarIcon from "./icons/star-icon.svg";
 
-export const GameTitle = ({className}) => {
+export const GameTitle = ({className, playersCount}) => {
 	return (
 		<div className={clsx("pl-2", className && className, "")}>
 			<Link href="#" className="flex gap-2 text-teal-600 text-sm leading-tight">
@@ -21,10 +21,11 @@ export const GameTitle = ({className}) => {
 			<div className="flex gap-3 text-slate-400 text-sm">
 				<Image src={StarIcon} />
 				<div className="flex gap-1">
-					<Image src={UserIcon} />2
+					<Image src={UserIcon} />
+					{playersCount}
 				</div>
 				<div className="flex gap-1">
-					<Image src={HistoryIcon}/>1 мин на ход
+					<Image src={HistoryIcon} />1 мин на ход
 				</div>
 			</div>
 		</div>

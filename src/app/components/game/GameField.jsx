@@ -11,8 +11,8 @@ import {GameSymbol} from "./GameSymbol";
 // custom hook
 import {useGameState} from "../../hooks/useGameState.jsx";
 
-export const GameField = () => {
-	const {cells, currentMove, nextMove, handleCellClick} = useGameState();
+export const GameField = ({playersCount}) => {
+	const {cells, currentMove, nextMove, handleCellClick} = useGameState(playersCount);
 	return (
 		<GameFieldLayout>
 			<GameMoveInfo

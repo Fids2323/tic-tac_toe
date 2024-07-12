@@ -7,6 +7,7 @@ export {GameGrid} from './GameGrid.jsx'
 export {GameCell} from './GameCell.jsx'
 export {GameMoveInfo} from './GameMoveInfo.jsx'
 export {GameSymbol} from './GameSymbol.jsx'
+export {PlayerInfo} from './PlayerInfo.jsx'
 
 
 

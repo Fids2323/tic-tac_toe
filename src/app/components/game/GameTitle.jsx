@@ -13,19 +13,19 @@ export const GameTitle = ({className, playersCount}) => {
 	return (
 		<div className={clsx("pl-2", className && className, "")}>
 			<Link href="#" className="flex gap-2 text-teal-600 text-sm leading-tight">
-				<Image src={ArrowLeft} />
+				<Image alt="arrow-left" src={ArrowLeft} />
 				На главную
 			</Link>
 			<h1 className="text-4xl">Крестики нолики</h1>
 
 			<div className="flex gap-3 text-slate-400 text-sm">
-				<Image src={StarIcon} />
+				<Image alt="star-icon" src={StarIcon} />
 				<div className="flex gap-1">
-					<Image src={UserIcon} />
+					<Image alt="user" src={UserIcon} />
 					{playersCount}
 				</div>
 				<div className="flex gap-1">
-					<Image src={HistoryIcon} />1 мин на ход
+					<Image alt="history" src={HistoryIcon} />1 мин на ход
 				</div>
 			</div>
 		</div>

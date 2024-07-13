@@ -1,10 +1,5 @@
 import React from "react";
-import Image from "next/image";
-
 import {GAME_SYMBOL} from "./constants";
-//icons
-import crossIcon from "../profile/icons/cross-icon.svg";
-import roundIcon from "../profile/icons/round-icon.svg";
 import clsx from "clsx";
 
 import userSrc1 from "./icons/user-icon1.png";
@@ -44,11 +39,11 @@ const Users = [
 	},
 ];
 
-export const GameInfo = ({className, playersCount}) => {
+export const GameInfo = ({className, playersCount, currentMove}) => {
 	return (
 		<div className={clsx("w-[616px] px-8 py-4 grid grid-cols-2 justify-between rounded-2xl shadow-md bg-white gap-3", className && className, "")}>
 			{Users.slice(0, playersCount).map((player) => (
-				<PlayerInfo player={player} isRight={player.id % 2 === 0} key={player.id} />
+				<PlayerInfo currentMove={currentMove} player={player} isRight={player.id % 2 === 0} key={player.id} isTimerRunning={currentMove === player.symbol} />
 			))}
 		</div>
 	);

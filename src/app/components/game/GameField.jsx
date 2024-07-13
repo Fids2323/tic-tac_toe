@@ -8,11 +8,7 @@ import {GameGrid} from "./GameGrid";
 import {GameCell} from "./GameCell";
 import {GameSymbol} from "./GameSymbol";
 
-// custom hook
-import {useGameState} from "../../hooks/useGameState.jsx";
-
-export const GameField = ({playersCount}) => {
-	const {cells, currentMove, nextMove, handleCellClick} = useGameState(playersCount);
+export const GameField = ({cells, currentMove, nextMove, handleCellClick}) => {
 	return (
 		<GameFieldLayout>
 			<GameMoveInfo

@@ -15,5 +15,5 @@ export const GameSymbol = ({symbol, className}) => {
 		[GAME_SYMBOL.TRIANGLE]: TriangleIcon,
 	}[symbol];
 
-	return <Image src={icon} className={className} />;
+	return <Image alt="symbol" src={icon} className={className} />;
 };

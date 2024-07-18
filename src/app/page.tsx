@@ -6,8 +6,8 @@ import { useGameState } from './hooks/useGameState';
 
 
 const Home = () => {
-	const [playersCount] = useState(4)
-	const {cells, currentMove, nextMove, handleCellClick} = useGameState(playersCount)
+	const [playersCount] = useState(2)
+	const {cells, currentMove, nextMove,winnerSequence, handleCellClick} = useGameState(playersCount)
 
   return (
     <div className="bg-slate-50 min-h-screen">
@@ -16,7 +16,7 @@ const Home = () => {
 				<GameTitle className="mb-4" playersCount={playersCount } />
 				<GameInfo className="mb-6" playersCount={playersCount} currentMove={ currentMove} />
 				<GameField
-					cells={cells} currentMove={currentMove} nextMove={nextMove} handleCellClick={ handleCellClick}/>
+					cells={cells} winnerSequence={winnerSequence} currentMove={currentMove} nextMove={nextMove} handleCellClick={ handleCellClick}/>
 			</main>
     </div>
   );

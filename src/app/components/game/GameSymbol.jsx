@@ -7,7 +7,7 @@ import CrossIcon from "../profile/icons/cross-icon.svg";
 import SquareIcon from "../profile/icons/square-icon.svg";
 import TriangleIcon from "../profile/icons/triangle-icon.svg";
 
-export const GameSymbol = ({symbol, className}) => {
+export const GameSymbol = ({symbol, className }) => {
 	const icon = {
 		[GAME_SYMBOL.ROUND]: RoundIcon,
 		[GAME_SYMBOL.CROSS]: CrossIcon,
@@ -15,5 +15,5 @@ export const GameSymbol = ({symbol, className}) => {
 		[GAME_SYMBOL.TRIANGLE]: TriangleIcon,
 	}[symbol];
 
-	return <Image alt="symbol" src={icon} className={className} />;
+	return <Image alt="symbol" src={icon} className={className } />;
 };

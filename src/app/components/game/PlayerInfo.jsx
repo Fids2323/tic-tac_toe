@@ -3,7 +3,7 @@ import {Profile} from "../profile";
 import clsx from "clsx";
 import {useEffect, useState} from "react";
 
-export const PlayerInfo = ({player, isRight, isTimerRunning}) => {
+export const PlayerInfo = ({player, isRight, isTimerRunning,onTimeOver}) => {
 	const [seconds, setSeconds] = useState(12);
 	useEffect(() => {
 		if (isTimerRunning) {
@@ -17,6 +17,12 @@ export const PlayerInfo = ({player, isRight, isTimerRunning}) => {
 			};
 		}
 	}, [isTimerRunning]);
+
+	useEffect(()=>{
+		if(seconds === 0){
+			onTimeOver();
+		}
+	},[seconds])
 
 	const minutesSting = String(Math.floor(seconds / 60)).padStart(2, "0");
 	const secondsString = String(seconds % 60).padStart(2, "0");

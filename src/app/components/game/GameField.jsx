@@ -8,7 +8,7 @@ import {GameGrid} from "./GameGrid";
 import {GameCell} from "./GameCell";
 import {GameSymbol} from "./GameSymbol";
 
-export const GameField = ({winnerSequence ,cells, currentMove, nextMove, handleCellClick}) => {
+export const GameField = ({winnerSequence,winnerSymbol ,cells, currentMove, nextMove, handleCellClick}) => {
 	return (
 		<GameFieldLayout>
 			<GameMoveInfo
@@ -23,7 +23,7 @@ export const GameField = ({winnerSequence ,cells, currentMove, nextMove, handleC
 			/>
 			<GameGrid>
 				{cells.map((symbol, index) => (
-					<GameCell key={index} onClick={() => handleCellClick(index)} isWinner={winnerSequence?.includes(index)}>
+					<GameCell key={index} onClick={() => handleCellClick(index)} isWinner={winnerSequence?.includes(index)} disabled={!!winnerSymbol}>
 						{symbol && <GameSymbol symbol={symbol} className="w-5 h-5" />}
 					</GameCell>
 				))}

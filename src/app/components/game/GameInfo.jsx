@@ -39,11 +39,11 @@ const Users = [
 	},
 ];
 
-export const GameInfo = ({className, playersCount, currentMove}) => {
+export const GameInfo = ({className,winnerSymbol, playersCount, currentMove, isWinner, onPlayerTimeOver}) => {
 	return (
 		<div className={clsx("w-[616px] px-8 py-4 grid grid-cols-2 justify-between rounded-2xl shadow-md bg-white gap-3", className && className, "")}>
 			{Users.slice(0, playersCount).map((player) => (
-				<PlayerInfo currentMove={currentMove} player={player} isRight={player.id % 2 === 0} key={player.id} isTimerRunning={currentMove === player.symbol} />
+				<PlayerInfo onTimeOver={() => onPlayerTimeOver(player.symbol)} currentMove={currentMove} player={player} isRight={player.id % 2 === 0} key={player.id} isTimerRunning={currentMove === player.symbol && !isWinner} />
 			))}
 		</div>
 	);
